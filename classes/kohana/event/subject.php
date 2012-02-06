@@ -9,7 +9,7 @@
  * @copyright  (c) 2007-2008 Kohana Team
  * @license    http://kohanaphp.com/license.html
  */
-abstract class Kohana_Event_Subject {
+abstract class Kohana_Event_Subject implements SplSubject {
 
 	// Attached subject listeners
 	protected $listeners = array();
