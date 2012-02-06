@@ -1,3 +1,3 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Calendar extends Kohana_Calendar {}
+class Calendar_Event extends Kohana_Calendar_Event {}
