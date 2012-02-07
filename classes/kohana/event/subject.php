@@ -21,9 +21,9 @@ abstract class Kohana_Event_Subject implements SplSubject {
 	 * @param   object  Event_Observer
 	 * @return  object
 	 */
-	public function attach(Event_Observer $obj)
+	public function attach(SplObserver $obj)
 	{
-		if ( ! ($obj instanceof Event_Observer))
+		if ( ! ($obj instanceof SplObserver))
 			throw new Kohana_Exception('eventable.invalid_observer', get_class($obj), get_class($this));
 
 		// Add a new listener
@@ -39,7 +39,7 @@ abstract class Kohana_Event_Subject implements SplSubject {
 	 * @param   object  Event_Observer
 	 * @return  object
 	 */
-	public function detach(Event_Observer $obj)
+	public function detach(SplObserver $obj)
 	{
 		// Remove the listener
 		unset($this->listeners[spl_object_hash($obj)]);
@@ -54,7 +54,7 @@ abstract class Kohana_Event_Subject implements SplSubject {
 	 * @param   mixed   message string, object, or array
 	 * @return  object
 	 */
-	public function notify($message)
+	public function notify($message = NULL)
 	{
 		foreach ($this->listeners as $obj)
 		{

@@ -20,7 +20,7 @@ abstract class Kohana_Event_Observer implements SplObserver {
 	 * @param   object  Event_Subject
 	 * @return  void
 	 */
-	public function __construct(Event_Subject $caller)
+	public function __construct(SplSubject $caller)
 	{
 		// Update the caller
 		$this->update($caller);
@@ -33,9 +33,9 @@ abstract class Kohana_Event_Observer implements SplObserver {
 	 * @param   object  Event_Subject
 	 * @return  object
 	 */
-	public function update(Event_Subject $caller)
+	public function update(SplSubject $caller)
 	{
-		if ( ! ($caller instanceof Event_Subject))
+		if ( ! ($caller instanceof SplSubject))
 			throw new Kohana_Exception('event.invalid_subject', get_class($caller), get_class($this));
 
 		// Update the caller

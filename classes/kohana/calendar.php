@@ -314,7 +314,7 @@ class Kohana_Calendar extends Event_Subject {
 	 * @param   array  UNIX timestamp
 	 * @return  void
 	 */
-	public function notify($data)
+	public function notify($data = NULL)
 	{
 		// Reset observed data
 		$this->observed_data = array
@@ -332,7 +332,7 @@ class Kohana_Calendar extends Event_Subject {
 	 *
 	 * @return  string
 	 */
-	public function render($tmpl = 'calendar')
+	public function render($tmpl = 'calendar/month')
 	{
 		$view =  new View($tmpl, array
 		(
